@@ -1,10 +1,18 @@
 import "@/styles/globals.css";
-import Layout from "@/components/Layout";
+import { useEffect } from "react";
+import { track } from "@/lib/analytics";
+import CookieConsent from "@/components/CookieConsent";
 
-export default function MyApp({ Component, pageProps }) {
-  return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  );
+export default function App({ Component, pageProps }) {
+  useEffect(() => {
+    const consent = localStorage.getItem('consent_analytics');
+    if (consent === 'granted') {
+      track("page_view", { path: window.location.pathname });
+    }
+  }, []);
+
+  return <>
+    <Component {...pageProps} />
+    <CookieConsent />
+  </>;
 }

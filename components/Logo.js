@@ -1,3 +1,27 @@
+import clsx from 'clsx';
+
+const sources = {
+  crestWhite: '/images/branding/03-icon_crest_white-transparent.png',
+  crestMaroonNavy: '/images/branding/03-icon_crest_maroon-navy.png',
+  wordmarkWhite: '/images/branding/04-wordmark_white-transparent.png',
+  wordmarkMaroonNavy: '/images/branding/04-wordmark_maroon-navy.png',
+  horizontalWhite: '/images/branding/02-horizontal_primary_white-transparent.png',
+  horizontalMaroonNavy: '/images/branding/02-horizontal_primary_maroon-navy.png'
+};
+
+export default function Logo({ variant = 'crestWhite', size = 32, className = '', alt = 'Orion Apex Capital' }) {
+  const src = sources[variant] || sources.crestWhite;
+  return (
+    <img
+      src={src}
+      alt={alt}
+      width={size}
+      height={size}
+      className={clsx(className)}
+    />
+  );
+}
+
 export default function Logo({ className = "h-8 w-8" }) {
   return (
     <svg className={className} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Orion Apex">

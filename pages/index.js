@@ -1,70 +1,128 @@
-import Hero from "@/components/Hero";
-import NewsletterForm from "@/components/NewsletterForm";
+import Layout from "@/components/Layout";
+import Button from "@/components/Button";
+import Logo from "@/components/Logo";
+import LogoGrid from "@/components/LogoGrid";
 import Link from "next/link";
+import { getAllPosts } from "@/lib/posts";
 
-const features = [
-  {
-    title: "Crypto Trading",
-    desc: "Short-term scalp, breakout, and swing strategies with strict risk controls and multi-timeframe confluence.",
-    icon: "chart",
-  },
-  {
-    title: "Automated Cash Businesses",
-    desc: "ATM placements with data-driven location selection and disciplined capital recycling.",
-    icon: "atm",
-  },
-  {
-    title: "Digital Assets & Web",
-    desc: "Website acquisitions for cashflow + resale, plus targeted AI-driven assets.",
-    icon: "web",
-  },
-  {
-    title: "Risk Management",
-    desc: "2:1 minimum R:R, ATR-based stops, volatility filters, and post-entry protective logic.",
-    icon: "shield",
-  }
-];
-
-export default function Home() {
+export default function Home({ posts }) {
   return (
-    <>
-      <Hero />
-      <section className="mx-auto max-w-7xl px-6 py-16 grid gap-8 md:grid-cols-2">
-        {features.map((f) => (
-          <div key={f.title} className="card">
-            <div className="flex items-start gap-4">
-              <img src={`/images/icon-${f.icon}.svg`} alt="" className="h-10 w-10" />
-              <div>
-                <h3 className="text-xl font-semibold">{f.title}</h3>
-                <p className="text-slate-300 mt-2">{f.desc}</p>
-              </div>
-            </div>
+    <Layout>
+      {/* Hero Section */}
+      <section className="starfield border-b border-white/10">
+        <div className="container py-20 text-center">
+          <div className="flex justify-center mb-6">
+            <Logo variant="crestWhite" size={56} />
           </div>
-        ))}
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="card">
-          <div className="grid gap-6 md:grid-cols-2 items-center">
-            <div>
-              <h3 className="text-2xl font-bold">Strategy, Discipline, and Purpose</h3>
-              <p className="text-slate-300 mt-3">
-                Our edge blends technical precision with real-world operator experience. We optimize for reliable execution and risk-aware growth that compounds.
-              </p>
-              <div className="mt-6 flex gap-3">
-                <Link href="/services" className="btn btn-primary">See Services</Link>
-                <Link href="/insights" className="btn btn-secondary">Read Insights</Link>
-              </div>
-            </div>
-            <img src="/images/hero-abstract.svg" alt="Abstract graphic" className="w-full" />
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+            Orion Apex Capital
+          </h1>
+          <p className="mt-4 text-lg md:text-2xl text-slate-300">
+            Precision. Growth. Legacy.
+          </p>
+          <p className="mt-6 text-slate-300 max-w-3xl mx-auto">
+            We deploy disciplined, risk-managed strategies across crypto
+            markets, automated cash businesses, and digital assets—aligning
+            returns with long-term purpose.
+          </p>
+          <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
+            <Button href="/services">Explore Strategies</Button>
+            <Button href="/contact" variant="secondary">
+              Partner With Us
+            </Button>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <h3 className="text-2xl font-bold mb-6">Get Market & Growth Notes</h3>
-        <NewsletterForm />
+      {/* Social Proof */}
+      <LogoGrid />
+
+      {/* Services Overview */}
+      <section className="container py-16">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          Disciplined Operator Lanes
+        </h2>
+        <div className="grid gap-6 md:grid-cols-3">
+          <a href="/services#crypto" className="card block hover:shadow-elev transition">
+            <h3 className="font-semibold text-xl">Crypto Trading</h3>
+            <p className="text-slate-300 mt-2">
+              Short-term setups with strict risk controls and volatility gates.
+            </p>
+          </a>
+          <a href="/services#atm" className="card block hover:shadow-elev transition">
+            <h3 className="font-semibold text-xl">ATM Placements</h3>
+            <p className="text-slate-300 mt-2">
+              Uptime, route logic, and unit economics at the edge.
+            </p>
+          </a>
+          <a href="/services#websites" className="card block hover:shadow-elev transition">
+            <h3 className="font-semibold text-xl">Website Investing</h3>
+            <p className="text-slate-300 mt-2">
+              Acquire → Improve → Recycle. Operator math over hype.
+            </p>
+          </a>
+        </div>
       </section>
-    </>
+
+      {/* Featured Case Study */}
+      <section className="container py-12">
+        <div className="card">
+          <div className="md:flex items-center gap-8">
+            <div className="flex-1">
+              <h3 className="text-2xl font-semibold">
+                Case Study: KPI Dashboard for Multi-Club Fitness Operator
+              </h3>
+              <p className="text-slate-300 mt-2">
+                Retention +2.8pp • 6–8 hrs/wk saved • Single source of truth
+              </p>
+              <div className="mt-4">
+                <Button href="/freelance/kpi-dashboard-fitness">
+                  Read Case Study
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Insights */}
+      <section className="container py-12">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6">Insights</h2>
+        <div className="grid gap-6 md:grid-cols-3">
+          {posts.slice(0, 3).map((p) => (
+            <a
+              key={p.slug}
+              href={`/insights/${p.slug}`}
+              className="card block hover:shadow-elev transition"
+            >
+              <h3 className="font-semibold">{p.title}</h3>
+              <p className="text-slate-300 mt-2">{p.excerpt}</p>
+              <p className="text-xs text-slate-400 mt-3">
+                {new Date(p.date).toLocaleDateString()}
+              </p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="container py-16">
+        <div className="card text-center">
+          <h3 className="text-2xl font-semibold">
+            Ready to align execution with outcomes?
+          </h3>
+          <div className="mt-4 flex gap-4 justify-center flex-wrap">
+            <Button href="/contact">Schedule a Consultation</Button>
+            <Link className="btn btn-secondary" href="/freelance">
+              Explore Freelance Work
+            </Link>
+          </div>
+        </div>
+      </section>
+    </Layout>
   );
+}
+
+export async function getStaticProps() {
+  return { props: { posts: getAllPosts() } };
 }

@@ -2,77 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Typography & base */
 :root {
-  --bg: #0b1220;
-  --fg: #e6f1ff;
-  --muted: #93a3b8;
-  --teal: #00d4ff;
-  --gold: #e6b800;
+  color-scheme: dark;
 }
-html, body, #__next {
-  height: 100%;
-}
+
+html,
 body {
-  background: var(--bg);
-  color: var(--fg);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  @apply bg-navy-900 text-neutral-100;
 }
 
-/* Starfield background */
-.starfield {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.starfield::before, .starfield::after {
-  content: "";
-  position: absolute;
-  inset: -20%;
-  background-repeat: repeat;
-  opacity: 0.5;
-  z-index: -1;
-}
-.starfield::before {
-  background-image: radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,.6), transparent),
-                    radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,.5), transparent),
-                    radial-gradient(1.5px 1.5px at 130px 90px, rgba(255,255,255,.6), transparent);
-  animation: drift 60s linear infinite;
-}
-.starfield::after {
-  background-image: radial-gradient(1.2px 1.2px at 90px 60px, rgba(0,212,255,.6), transparent),
-                    radial-gradient(1px 1px at 140px 120px, rgba(255,215,0,.6), transparent);
-  animation: drift 100s linear infinite reverse;
+/* Helpers */
+.container {
+  @apply mx-auto max-w-6xl px-6;
 }
 
-@keyframes drift {
-  from { transform: translateY(0); }
-  to   { transform: translateY(1000px); }
-}
-
-/* Card */
-.card {
-  @apply bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm;
-}
-
-/* Button */
+/* Buttons */
 .btn {
-  @apply inline-flex items-center justify-center rounded-lg px-5 py-3 font-semibold shadow-glow transition transform;
-}
-.btn-primary {
-  @apply bg-teal text-navy hover:scale-[1.02] active:scale-[.99];
-}
-.btn-secondary {
-  @apply bg-white/10 text-white hover:bg-white/20;
+  @apply inline-flex items-center justify-center rounded-lg font-semibold transition;
 }
 
-/* Prose */
-.prose h1, .prose h2, .prose h3 {
-  @apply text-white;
+.btn-primary {
+  @apply bg-maroon-700 text-white px-5 py-3 hover:bg-maroon-600 focus:outline-teal-400;
 }
-.prose p, .prose li {
-  @apply text-slate-200;
+
+.btn-secondary {
+  @apply border border-white/20 text-white px-5 py-3 hover:bg-white/10;
 }
-.prose a {
-  @apply text-teal underline;
+
+/* Inputs */
+.input,
+.textarea {
+  @apply w-full rounded-lg bg-white/10 px-4 py-3 outline-none
+    focus:ring-2 focus:ring-teal-400 placeholder:text-neutral-500;
+}
+
+.textarea {
+  @apply min-h-[144px];
+}
+
+/* Cards */
+.card {
+  @apply rounded-xl border border-white/10 bg-white/5 p-6 shadow-card;
+}
+
+/* Starfield Hero */
+.starfield {
+  background: 
+    linear-gradient(to bottom, rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.9)),
+    url("/images/branding/hero-wide-1536x768.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 1536px) {
+  .starfield {
+    background: 
+      linear-gradient(to bottom, rgba(11, 31, 59, 0.7), rgba(11, 31, 59, 0.9)),
+      url("/images/branding/hero-2560x1440.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .starfield {
+    background: 
+      linear-gradient(to bottom, rgba(11, 31, 59, 0.8), rgba(11, 31, 59, 0.95)),
+      url("/images/branding/hero-mobile-1080x1920.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* Accessibility */
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 bg-teal-400 text-navy-900 px-3 py-2 rounded;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
