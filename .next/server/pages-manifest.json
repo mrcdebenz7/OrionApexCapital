@@ -1,19 +1,6 @@
 {
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
-  "/500": "pages/500.js",
   "/_error": "pages/_error.js",
-  "/404": "pages/404.js",
-  "/about": "pages/about.js",
-  "/api/contact": "pages/api/contact.js",
-  "/api/subscribe": "pages/api/subscribe.js",
-  "/bio": "pages/bio.js",
-  "/contact": "pages/contact.js",
-  "/legal": "pages/legal.js",
-  "/services": "pages/services.js",
-  "/freelance": "pages/freelance.js",
-  "/insights/[slug]": "pages/insights/[slug].js",
-  "/freelance/[slug]": "pages/freelance/[slug].js",
-  "/": "pages/index.js",
-  "/insights": "pages/insights.js"
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js"
 }
