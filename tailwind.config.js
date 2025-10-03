@@ -40,6 +40,14 @@ module.exports = {
       },
       borderRadius: {
         xl: "20px"
+      },
+      animation: {
+        'spin-slow': 'spin 20s linear infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'glow': 'glow-pulse 3s ease-in-out infinite',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       }
     }
   },
