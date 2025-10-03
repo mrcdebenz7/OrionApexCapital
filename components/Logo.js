@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Image from 'next/image';
 
 const sources = {
   crestWhite: '/images/branding/03-icon_crest_white-transparent.png',
@@ -12,7 +13,7 @@ const sources = {
 export default function Logo({ variant = 'crestWhite', size = 32, className = '', alt = 'Orion Apex Capital' }) {
   const src = sources[variant] || sources.crestWhite;
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
       width={size}

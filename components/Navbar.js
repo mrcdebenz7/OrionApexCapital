@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 import Button from "./Button";
 
 export default function Navbar() {
@@ -9,9 +10,11 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 border-b border-white/10 bg-navy-900/70 backdrop-blur-md">
       <div className="container py-4 flex items-center justify-between">
         <Link className="flex items-center gap-3" href="/">
-          <img
+          <Image
             src="/images/branding/03-icon_crest_white-transparent.png"
             alt="Orion Apex"
+            width={32}
+            height={32}
             className="h-8 w-8"
           />
           <span className="font-semibold">Orion Apex Capital</span>
