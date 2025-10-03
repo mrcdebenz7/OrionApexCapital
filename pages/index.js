@@ -9,81 +9,39 @@ export default function Home({ posts }) {
   return (
     <Layout>
       {/* Futuristic Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-black">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-gold-500/20 to-teal-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-teal-400/20 to-maroon-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-conic from-gold-500/10 via-transparent to-teal-400/10 rounded-full blur-2xl animate-spin-slow"></div>
-        </div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-900">
         
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-        
-        <div className="container relative z-10 text-center px-6">
-          {/* Logo with Glow Effect */}
-          <div className="flex justify-center mb-8 group">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-gold-500 to-teal-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-              <div className="relative">
-                <Logo variant="crestWhite" size={80} className="filter drop-shadow-2xl" />
-              </div>
-            </div>
+        <div className="container text-center px-6">
+          {/* Logo */}
+          <div className="flex justify-center mb-8">
+            <Logo variant="crestWhite" size={80} />
           </div>
           
-          {/* Main Heading with Gradient Text */}
-          <h1 className="text-5xl md:text-8xl font-black tracking-tight bg-gradient-to-r from-white via-neutral-100 to-gold-500 bg-clip-text text-transparent drop-shadow-2xl">
+          {/* Main Heading */}
+          <h1 className="text-5xl md:text-8xl font-black tracking-tight text-white">
             ORION APEX
           </h1>
-          <h2 className="text-3xl md:text-5xl font-light tracking-wider text-gold-500 mt-2 drop-shadow-lg">
+          <h2 className="text-3xl md:text-5xl font-light tracking-wider text-gold-500 mt-2">
             CAPITAL
           </h2>
           
-          {/* Premium Tagline */}
+          {/* Tagline */}
           <div className="mt-8 mb-6">
-            <p className="text-xl md:text-3xl font-light text-transparent bg-gradient-to-r from-neutral-100 to-teal-400 bg-clip-text">
+            <p className="text-xl md:text-3xl font-light text-neutral-100">
               Precision • Growth • Legacy
             </p>
           </div>
           
-          {/* Enhanced Description */}
+          {/* Description */}
           <p className="mt-8 text-lg md:text-xl text-neutral-300 max-w-4xl mx-auto leading-relaxed font-light">
-            We deploy <span className="text-gold-500 font-semibold">disciplined, risk-managed strategies</span> across crypto markets, 
-            automated cash businesses, and digital assets—<span className="text-teal-400 font-semibold">aligning exceptional returns</span> with long-term purpose.
+            We deploy disciplined, risk-managed strategies across crypto markets, 
+            automated cash businesses, and digital assets—aligning exceptional returns with long-term purpose.
           </p>
           
-          {/* Premium Call-to-Action Buttons */}
+          {/* Call-to-Action Buttons */}
           <div className="mt-12 flex items-center justify-center gap-6 flex-wrap">
-            <Button href="/services" className="group relative overflow-hidden bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold px-8 py-4 text-lg shadow-2xl shadow-gold-500/25 hover:shadow-gold-500/50 transition-all duration-300 hover:scale-105">
-              <span className="relative z-10">Explore Strategies</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Button>
-            <Button href="/contact" variant="secondary" className="group relative border-2 border-teal-400 text-teal-400 hover:text-black hover:bg-teal-400 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-teal-400/25">
-              Partner With Us
-            </Button>
-          </div>
-          
-          {/* Stats Row */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="group cursor-pointer">
-              <div className="text-3xl md:text-4xl font-bold text-gold-500 group-hover:text-gold-400 transition-colors">$50M+</div>
-              <div className="text-sm text-neutral-400 uppercase tracking-wider">Assets Under Management</div>
-            </div>
-            <div className="group cursor-pointer">
-              <div className="text-3xl md:text-4xl font-bold text-teal-400 group-hover:text-teal-300 transition-colors">98.7%</div>
-              <div className="text-sm text-neutral-400 uppercase tracking-wider">Uptime Reliability</div>
-            </div>
-            <div className="group cursor-pointer">
-              <div className="text-3xl md:text-4xl font-bold text-neutral-100 group-hover:text-white transition-colors">5+ Years</div>
-              <div className="text-sm text-neutral-400 uppercase tracking-wider">Market Experience</div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-neutral-400 rounded-full flex justify-center">
-            <div className="w-1 h-2 bg-neutral-400 rounded-full mt-2 animate-pulse"></div>
+            <Button href="/services">Explore Strategies</Button>
+            <Button href="/contact" variant="secondary">Partner With Us</Button>
           </div>
         </div>
       </section>
