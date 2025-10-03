@@ -8,40 +8,69 @@ import { getAllPosts } from "@/lib/posts";
 export default function Home({ posts }) {
   return (
     <Layout>
-      {/* Futuristic Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-900">
+      {/* Premium Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-black">
+        {/* Subtle Background Elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold-500 rounded-full blur-3xl opacity-10"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-teal-400 rounded-full blur-3xl opacity-10"></div>
+        </div>
         
-        <div className="container text-center px-6">
-          {/* Logo */}
-          <div className="flex justify-center mb-8">
-            <Logo variant="crestWhite" size={80} />
+        <div className="container relative z-10 text-center px-6">
+          {/* Logo with Subtle Glow */}
+          <div className="flex justify-center mb-8 group">
+            <div className="relative p-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10">
+              <Logo variant="crestWhite" size={80} />
+            </div>
           </div>
           
-          {/* Main Heading */}
-          <h1 className="text-5xl md:text-8xl font-black tracking-tight text-white">
-            ORION APEX
+          {/* Main Heading with Production-Safe Gradient */}
+          <h1 className="text-5xl md:text-8xl font-black tracking-tight text-white mb-4">
+            <span className="bg-gradient-to-r from-white to-gold-500 bg-clip-text text-transparent">
+              ORION APEX
+            </span>
           </h1>
-          <h2 className="text-3xl md:text-5xl font-light tracking-wider text-gold-500 mt-2">
+          <h2 className="text-3xl md:text-5xl font-light tracking-wider text-gold-500">
             CAPITAL
           </h2>
           
-          {/* Tagline */}
+          {/* Premium Tagline */}
           <div className="mt-8 mb-6">
-            <p className="text-xl md:text-3xl font-light text-neutral-100">
+            <p className="text-xl md:text-3xl font-light bg-gradient-to-r from-neutral-100 to-teal-400 bg-clip-text text-transparent">
               Precision • Growth • Legacy
             </p>
           </div>
           
-          {/* Description */}
+          {/* Enhanced Description */}
           <p className="mt-8 text-lg md:text-xl text-neutral-300 max-w-4xl mx-auto leading-relaxed font-light">
-            We deploy disciplined, risk-managed strategies across crypto markets, 
-            automated cash businesses, and digital assets—aligning exceptional returns with long-term purpose.
+            We deploy <span className="text-gold-500 font-semibold">disciplined, risk-managed strategies</span> across crypto markets, 
+            automated cash businesses, and digital assets—<span className="text-teal-400 font-semibold">aligning exceptional returns</span> with long-term purpose.
           </p>
           
-          {/* Call-to-Action Buttons */}
+          {/* Premium Call-to-Action Buttons */}
           <div className="mt-12 flex items-center justify-center gap-6 flex-wrap">
-            <Button href="/services">Explore Strategies</Button>
-            <Button href="/contact" variant="secondary">Partner With Us</Button>
+            <Button href="/services" className="bg-gradient-to-r from-gold-500 to-gold-600 text-black font-bold px-8 py-4 text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+              Explore Strategies
+            </Button>
+            <Button href="/contact" variant="secondary" className="border-2 border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-black px-8 py-4 text-lg font-semibold transition-all duration-300">
+              Partner With Us
+            </Button>
+          </div>
+          
+          {/* Stats Row */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="group cursor-pointer">
+              <div className="text-3xl md:text-4xl font-bold text-gold-500 group-hover:text-gold-400 transition-colors">$50M+</div>
+              <div className="text-sm text-neutral-400 uppercase tracking-wider">Assets Under Management</div>
+            </div>
+            <div className="group cursor-pointer">
+              <div className="text-3xl md:text-4xl font-bold text-teal-400 group-hover:text-teal-300 transition-colors">98.7%</div>
+              <div className="text-sm text-neutral-400 uppercase tracking-wider">Uptime Reliability</div>
+            </div>
+            <div className="group cursor-pointer">
+              <div className="text-3xl md:text-4xl font-bold text-neutral-100 group-hover:text-white transition-colors">5+ Years</div>
+              <div className="text-sm text-neutral-400 uppercase tracking-wider">Market Experience</div>
+            </div>
           </div>
         </div>
       </section>
